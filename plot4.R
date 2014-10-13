@@ -4,8 +4,7 @@ hpc <- transform(hpc, datetime = strptime(paste(Date,Time), format = "%d/%m/20%y
 hpc <- transform(hpc, Date = as.Date(Date, format = "%d/%m/20%y"))
 
 png(filename = "plot4.png")
-par(mfrow = c(2,2))
-
+par(mfrow = c(2,2), bg = "transparent")
 with(hpc, plot(datetime,Global_active_power, xlab = "", ylab = "Global Active Power", pch = ""))
 lines(hpc$datetime,hpc$Global_active_power)
 
@@ -16,7 +15,7 @@ with(hpc, plot(datetime,Sub_metering_1, xlab = "", ylab = "Energy sub metering",
 lines(hpc$datetime,hpc$Sub_metering_1, col = "black")
 lines(hpc$datetime,hpc$Sub_metering_2, col = "red")
 lines(hpc$datetime,hpc$Sub_metering_3, col = "blue")
-legend("topright", col = c("black", "blue", "red"), lty = 1, bty = "n", legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+legend("topright", col = c("black", "red", "blue"), lty = 1, bty = "n", legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 
 
 with(hpc, plot(datetime,Global_reactive_power, pch = ""))
